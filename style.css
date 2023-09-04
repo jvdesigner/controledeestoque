@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s linear;
+    /*outline: 0.5px solid black;*/
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  
+  .dropdown {
+    height: 150px;
+    animation: animation-dropdown 0.5s linear forwards;
+  }
+  
+  @keyframes animation-dropdown {
+    0% {
+      height: 0px;
+      transform: scaleY(0);
+    }
+    100% {
+      height: 150px;
+      transform: scaleY(1);
+    }
+  }
+  

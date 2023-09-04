@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📄 Controle de estoque</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script type="module" src="cadastroProdutos.js"></script>
+</head>
+<body>
+
+    <!--body -->
+
+<div class="bg-gradient-to-br from-teal-200 h-full">
+
+    <!--navegacao -->
+    <header class="bg-slate-50 flex justify-between max-md:justify-center px-16 max-2xl:px-15 max-xl:px-14 max-lg:px-12 py-2">
+  
+      <!--Logo -->
+      <img class="w-36 max-2xl:w-32 max-xl:w-28 max-lg:w-24 " src="https://i.ibb.co/nPn4mFJ/image-6.png" alt="">
+  
+      <!--navbar -->
+      <nav class="flex items-center text-lg max-xl:text-base max-lg:text-sm text-gray-500 gap-6 max-2xl:gap-5 max-xl:gap-4 max-lg:gap-3 max-md:hidden">
+  
+        <!--Inicio -->
+        <a class="p-4 max-2xl:p-3 max-xl:p-2 hover:font-semibold hover:text-teal-400 hover:scale-105" href="#">Início</a>
+  
+        <!--dropdown - produtos -->
+        <div class=" cursor-pointer p-4 max-2xl:p-3 max-xl:p-2 relative group/dropdown">
+  
+          <!-- primeiro item drop down -->
+          <div class="flex gap-2 items-center ">
+  
+            <p class="group-hover/dropdown:font-semibold group-hover/dropdown:text-teal-500 group-hover/dropdown:scale-105">Produtos</p>
+  
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-4 max-xl:w-3 h-4 max-xl:h-3 group-hover/dropdown:-scale-y-110">
+              <path class="stroke-gray-500 group-hover/dropdown:stroke-teal-500 group-hover/dropdown:scale-105 " stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+  
+          </div>
+  
+          <!--Lista drop down -->
+          <ul class="text-base max-xl:text-sm flex-col p-6 rounded-lg bg-slate-50 shadow absolute gap-8  hidden group-hover/dropdown:flex dropdown overflow-hidden">
+  
+            <li class="hover:translate-x-1 flex"><a class="hover:font-semibold hover:text-teal-400 hover:scale-105 p-2" href="#">Cadastrar</a></li>
+  
+            <li class="hover:translate-x-1 flex"><a class="hover:font-semibold hover:text-teal-400 hover:scale-105 p-2" href="">Pesquisar</a></li>
+          </ul>
+  
+        </div>
+  
+        <!--dropdown - produtos -->
+        <div class=" cursor-pointer p-4 max-2xl:p-3 max-xl:p-2 relative group/dropdown">
+  
+          <!-- primeiro item drop down -->
+          <div class="flex gap-2 items-center ">
+  
+            <p class="group-hover/dropdown:font-semibold group-hover/dropdown:text-teal-500 group-hover/dropdown:scale-105">Transações</p>
+  
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-4 max-xl:w-3 h-4 max-xl:h-3 group-hover/dropdown:-scale-y-110">
+              <path class="stroke-gray-500 group-hover/dropdown:stroke-teal-500 group-hover/dropdown:scale-105 " stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+  
+          </div>
+  
+          <!--Lista drop down -->
+          <ul class="text-base max-xl:text-sm flex-col p-6 rounded-lg bg-slate-50 shadow absolute gap-8  hidden group-hover/dropdown:flex dropdown overflow-hidden">
+  
+            <li class="hover:translate-x-1 flex"><a class="hover:font-semibold hover:text-teal-400 hover:scale-105 p-2" href="#">Cadastrar</a></li>
+  
+            <li class="hover:translate-x-1 flex"><a class="hover:font-semibold hover:text-teal-400 hover:scale-105 p-2" href="">Pesquisar</a></li>
+          </ul>
+  
+        </div>
+  
+      </nav>
+  
+    </header>
+  
+    <div class="flex flex-col gap-20 items-center py-20 px-80 max-md:mb-20 max-2xl:gap-16 max-xl:gap-14 max-lg:gap-12 max-md:gap-11 max-sm:gap-10 max-2xl:py-16 max-xl:py-14 max-lg:py-12 max-md:py-11 max-sm:py-10 max-2xl:px-60 max-xl:px-52 max-lg:px-20 max-md:px-6 max-sm:px-4">
+  
+      <!-- Formulário de cadastro -->
+      <div id="formulario" class="bg-slate-50 p-10 rounded-3xl shadow-xl gap-10 flex flex-col w-full max-2xl:p-9 max-xl:p-8 max-lg:p-7 max-md:p-6 max-sm:p-5 max-2xl:gap-9 max-xl:gap-8 max-lg:gap-7 max-md:gap-6 max-sm:gap-5 max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl">
+  
+        <!-- Titulo e subtitulo -->
+        <div class="space-y-6 max-2xl:space-y-5 max-xl:space-y-4 max-lg:space-y-3 max-md:space-y-2 max-sm:space-y-2">
+  
+          <h1 class="text-4xl font-semibold text-gray-950 max-2xl:text-2xl max-xl:text-xl">Cadastro de Produtos</h1>
+          <h2 class="text-2xl text-gray-500 max-2xl:text-xl max-xl:text-lg max-lg:text-lg max-md:text-base max-sm:text-sm">Preencha o formulário para cadastrar um produto</h2>
+  
+        </div>
+  
+        <!--Container dos campos -->
+        <div class="space-y-10 max-2xl:space-y-9 max-xl:space-y-8 max-lg:space-y-7 max-md:space-y-6">
+  
+          <!--Campo nome do produto -->
+          <div class="flex flex-col gap-6 max-2xl:gap-5 max-xl:gap-4 max-lg:gap-3 max-md:gap-2 max-sm:gap-2">
+  
+            <label for="txt-nome-produto" class="text-2xl font-semibold text-gray-800 max-2xl:text-xl max-xl:text-xl max-lg:text-lg max-md:text-lg max-sm:text-base">Nome</label>
+  
+            <input type="text" name="nome-produto" id="txt-nome-produto" placeholder="Escreva o nome do produto" name="nome-produto" required maxlength="50" class="p-5  outline-2 rounded-3xl outline-teal-600 text-xl text-teal-700 hover:outline-teal-400 hover:outline-2 focus:outline-teal-500 focus:outline-4 font-medium max-2xl:p-4 max-xl:p-4 max-lg:p-3 max-md:p-3 max-sm:p-3 max-2xl:text-lg max-xl:text-lg max-lg:text-base max-md:text-sm max-sm:text-sm max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl" style="box-shadow: 1px 2px 4px 0px rgba(120, 120, 120, 0.31) inset;">
+  
+          </div>
+  
+          <!--Campo nome do categoria -->
+          <div class="flex flex-col gap-6 relative group/categoria max-2xl:gap-5 max-xl:gap-4 max-lg:gap-3 max-md:gap-2 max-sm:gap-2">
+  
+            <label for="txt-categoria-produto" class="text-2xl font-semibold text-gray-800 max-2xl:text-xl max-xl:text-xl max-lg:text-lg max-md:text-lg max-sm:text-base">Categoria</label>
+  
+            <svg class="w-9 bg-white absolute right-4 bottom-4 max-2xl:w-8 max-xl:w-7 max-lg:w-6 max-2xl:bottom-4 max-xl:bottom-4 max-lg:bottom-3 max-md:bottom-2 max-sm:bottom-1 fill-teal-600 group-hover/categoria:fill-teal-400 group-hover/categoria:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
+            </svg>
+  
+            <select id="txt-categoria-produto" name="categoria-produto" required placeholder="Selecione uma categoria do produto" class="p-5 cursor-pointer outline outline-2 rounded-3xl outline-gray-200 text-xl text-teal-700 hover:outline-teal-400 hover:outline-2 focus:outline-teal-500 focus:outline-4 font-medium max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl max-2xl:p-4 max-xl:p-4 max-lg:p-3 max-md:p-3 max-sm:p-3 max-2xl:text-lg max-xl:text-lg max-lg:text-base max-md:text-sm max-sm:text-sm" style="appearance: none;">
+  
+              <option value="Legumes" class=" outline text-sm outline-2 rounded-3xl outline-gray-400  text-teal-500 hover:outline-teal-40 font-medium max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl">Legumes </option>
+  
+              <option value="Frutas" class="rounded-3xl hover:outline-teal-40 font-medium text-teal-500 text-sm max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl">Frutas </option>
+  
+              <option value="Verduras" class=" outline text-sm outline-2 rounded-3xl outline-gray-400  text-teal-500 hover:outline-teal-40 font-medium max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl">Verduras </option>
+  
+              <option value="Laticínios" class="rounded-3xl hover:outline-teal-40 font-medium text-teal-500 text-sm max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl">Laticínios </option>
+  
+            </select>
+  
+          </div>
+  
+          <!--Campo preco do produto -->
+          <div class="flex flex-col gap-6  max-2xl:gap-5 max-xl:gap-4 max-lg:gap-3 max-md:gap-2 max-sm:gap-2">
+  
+            <label for="txt-preco-produto" class="text-2xl font-semibold text-gray-800 max-2xl:text-xl max-xl:text-xl max-lg:text-lg max-md:text-lg max-sm:text-base">Preço</label>
+  
+            <input step="0.01" type="number" min="0" name="txt-preco-produto" id="txt-preco-produto" placeholder="Escreva o preço do produto" name="preco-produto" required maxlength="10" class="p-5  outline-2 rounded-3xl outline-teal-600 text-xl text-teal-700 hover:outline-teal-400 hover:outline-2 focus:outline-teal-500 focus:outline-4 font-medium max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl max-2xl:p-4 max-xl:p-4 max-lg:p-3 max-md:p-3 max-sm:p-3 max-2xl:text-lg max-xl:text-lg max-lg:text-base max-md:text-sm max-sm:text-sm" style="box-shadow: 1px 2px 4px 0px rgba(120, 120, 120, 0.31) inset;">
+  
+          </div>
+  
+          <!--Campo custo do produto -->
+          <div class="flex flex-col gap-6  max-2xl:gap-5 max-xl:gap-4 max-lg:gap-3 max-md:gap-2 max-sm:gap-2">
+  
+            <label for="txt-custo-produto" class="text-2xl font-semibold text-gray-800 max-2xl:text-xl max-xl:text-xl max-lg:text-lg max-md:text-lg max-sm:text-base">Custo</label>
+  
+            <input step="0.01" type="number" min="0" name="txt-custo-produto" id="txt-custo-produto" placeholder="Escreva o custo do produto" name="custo-produto" required maxlength="10" class="p-5 outline-2 rounded-3xl outline-teal-600 text-xl text-teal-700 hover:outline-teal-400 hover:outline-2 focus:outline-teal-500 focus:outline-4 font-medium max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl max-2xl:p-4 max-xl:p-4 max-lg:p-3 max-md:p-3 max-sm:p-3 max-2xl:text-lg max-xl:text-lg max-lg:text-base max-md:text-sm max-sm:text-sm" style="box-shadow: 1px 2px 4px 0px rgba(120, 120, 120, 0.31) inset;">
+  
+          </div>
+  
+          <!--Campo quantidade -->
+          <div class="flex flex-col gap-6 max-2xl:gap-5 max-xl:gap-4 max-lg:gap-3 max-md:gap-2 max-sm:gap-2">
+  
+            <label for="txt-quantidade-produto" class="text-2xl font-semibold text-gray-800 max-2xl:text-xl max-xl:text-xl max-lg:text-lg max-md:text-lg max-sm:text-base">Quantidade</label>
+  
+            <input step="0.01" type="number" name="txt-quantidade-produto" id="txt-quantidade-produto" placeholder="Escreva a quantidade do produto" min="1" name="quantidade-produto" required maxlength="10" class="p-5  outline-2 rounded-3xl outline-teal-600 text-xl text-teal-700 hover:outline-teal-400 hover:outline-2 focus:outline-teal-500 focus:outline-4 font-medium max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl max-2xl:p-4 max-xl:p-4 max-lg:p-3 max-md:p-3 max-sm:p-3 max-2xl:text-lg max-xl:text-lg max-lg:text-base max-md:text-sm max-sm:text-sm" style="box-shadow: 1px 2px 4px 0px rgba(120, 120, 120, 0.31) inset;">
+  
+          </div>
+  
+          <!--Campo imagem -->
+          <div class="flex flex-col gap-6 max-2xl:gap-5 max-xl:gap-4 max-lg:gap-3 max-md:gap-2 max-sm:gap-2">
+  
+            <p class="text-2xl font-semibold text-gray-800 max-2xl:text-xl max-xl:text-xl max-lg:text-lg max-md:text-lg max-sm:text-base">Imagem</p>
+  
+            <label for="txt-imagem-produto" class="relative font-semibold  h-80 outline outline-2 rounded-3xl outline-gray-200 text-xl text-teal-700 hover:outline-teal-400 hover:outline-2 focus:outline-teal-500 focus:outline-4 flex items-center justify-center cursor-pointer hover:text-teal-400 hover:font-bold max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl max-2xl:p-4 max-xl:p-4 max-lg:p-3 max-md:p-3 max-sm:p-3 max-2xl:text-lg max-xl:text-lg max-lg:text-base max-md:text-sm max-sm:text-sm max-2xl:h-72 max-xl:h-64 max-lg:h-60 max-md:h-56 max-sm:h-52">
+              <p id="txt-adicione-imagem"> Adicione uma imagem </p> <img class="h-full" id="imagemExibicao" src="" alt="">
+  
+            </label>
+  
+            <input type="file" name="txt-imagem-produto" id="txt-imagem-produto" placeholder="Escreva a imagem do produto" min="1" name="imagem-produto" required maxlength="10" accept="image/*" class="hidden">
+  
+          </div>
+  
+        </div>
+  
+        <!-- Botão -->
+        <button id="btncadastrar" type="submit" class="bg-gradient-to-r from-teal-500 to-teal-400 w-full py-8 text-3xl font-semibold text-white rounded-2xl drop-shadow-xl my-6 mt-20 hover:scale-105 hover:rotate-1 hover:text-4xl hover:shadow-teal-300/40 hover:shadow-2xl hover:bg-gradient-to-r hover:from-teal-500/60 hover:to-teal-400/60 outline-teal-300 outline-2 max-2xl:rounded-2xl max-xl:rounded-2xl max-lg:rounded-xl max-2xl:text-2xl max-xl:text-xl max-lg:text-lg max-md:text-base max-2xl:py-7 max-xl:py-6 max-lg:py-5 max-2xl:my-5 max-xl:my-4 max-lg:my-3 max-2xl:mt-16 max-xl:mt-14 max-lg:mt-12 max-md:mt-10 max-sm:mt-9 max-2xl:hover:text-3xl max-xl:hover:text-2xl max-lg:hover:text-2xl max-md:hover:text-xl max-sm:hover:text-lg">Cadastrar</button>
+  
+      </div>
+  
+    </div>
+  
+    <!--navbar mobile -->
+    <nav class="fixed bg-slate-50/90 w-full hidden max-md:flex justify-between items-center px-16 max-md:px-14 max-sm:px-10 py-4 bottom-0 rounded-t-2xl  text-sm" style="box-shadow: 0px -2px 6px 0px rgba(40, 40, 40, 0.15);">
+  
+      <!--aba inicio -->
+      <a href="#" class="flex flex-col justify-center items-center gap-1 group/produtos">
+  
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500 group-hover/produtos:stroke-teal-500">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+  
+        <p class="text-gray-500 group-hover/produtos:font-medium group-hover/produtos:text-teal-500 ">Início</p>
+  
+      </a>
+  
+      <!--aba produtos -->
+      <a href="https://codepen.io/Joao-Victor-Nogueira/full/bGOwvjp.html" class="flex flex-col justify-center items-center gap-1 group/produtos">
+  
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500 stroke-teal-500 ">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+        </svg>
+  
+        <p class="text-gray-500 font-medium text-teal-500 ">Produtos</p>
+  
+      </a>
+  
+      <!--aba transacoes -->
+      <a href="#" class="flex flex-col justify-center items-center gap-1 group/produtos">
+  
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500 group-hover/produtos:stroke-teal-500">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+        </svg>
+  
+        <p class="text-gray-500 group-hover/produtos:font-medium group-hover/produtos:text-teal-500 ">Transações</p>
+  
+      </a>
+  
+    </nav>
+  
+  </div>
+  
+  <!--carregando -->
+  <div id="div-carregando" class="w-screen h-full bg-white/80 flex items-center justify-center fixed top-0 z-10 hidden">
+  
+    <div class="flex flex-col items-center gap-3">
+  
+      <iframe class="w-full" src="https://lottie.host/?file=4c254694-f9b2-490f-a52c-165ebc825540/Mu0Auqojmu.json"> </iframe>
+  
+      <p class="text-3xl max-2xl:text-2xl max-xl:text-xl max-lg:text-lg font-semibold animate-pulse text-teal-600">Carregando</p>
+  
+    </div>
+  
+  </div>
+  
+  <!--confirmacao -->
+  
+  <div id="div-confirmacao" class="w-screen h-full bg-white/80 flex items-center justify-center fixed top-0 z-10 hidden">
+  
+    <div class="flex flex-col items-center gap-3">
+  
+      <iframe src="https://lottie.host/?file=7fbff542-d3f4-45c5-9f34-cbb73462ae3f/84zaLpy41N.json"></iframe>
+  
+      <p class="text-3xl max-2xl:text-2xl max-xl:text-xl max-lg:text-lg font-semibold animate-pulse text-teal-600">Cadastro efetuado com sucesso</p>
+  
+    </div>
+  
+  </div>
+  
+  <!--erro -->
+  
+  <div id="div-erro" class="w-screen h-full bg-white/80 flex items-center justify-center fixed top-0 z-10 hidden">
+  
+    <div class="flex flex-col items-center gap-3">
+  
+      <iframe src="https://lottie.host/?file=01d25e14-cce8-4149-a660-c16f0f9523d6/KUE7VolH3y.json"></iframe>
+  
+      <p class="text-3xl max-2xl:text-2xl max-xl:text-xl max-lg:text-lg font-semibold animate-pulse text-red-400">Algo deu errado</p>
+  
+    </div>
+  
+  </div>
+
+
+
+ 
+
+
+    
+</body>
+</html>
