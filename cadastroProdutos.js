@@ -103,6 +103,7 @@ await getDownloadURL(storageRef)
       tirarCarregamento();
       mostrarConfirmacao();
       resetarFormulario();
+      window.location.href ="pesquisarProdutos.html";
     } catch (error) {
       mostrarErro();
     }
@@ -120,11 +121,13 @@ try {
     preco: parseFloat(precoProduto),
     custo: parseFloat(custoProduto),
     quantidade: parseInt(quantidadeProduto),
-    imagem: url
+    imagem: "https://i.ibb.co/4RvHPLG/image.png"
   });
 
   tirarCarregamento();
   mostrarConfirmacao();
+  resetarFormulario();
+  window.location.href ="pesquisarProdutos.html";
 } catch (error) {
   mostrarErro();
 }

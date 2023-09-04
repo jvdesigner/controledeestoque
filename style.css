@@ -11,6 +11,20 @@
     height: 150px;
     animation: animation-dropdown 0.5s linear forwards;
   }
+
+  @media (max-width:768px) {
+
+    .product article{min-height: 350px;}
+    
+  }
+
+  @media (min-width:768px) {
+
+    .product article{min-height: 450px;}
+    
+  }
+
+
   
   @keyframes animation-dropdown {
     0% {
